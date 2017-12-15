@@ -9,7 +9,7 @@ body {
 }
 
 .clock {
-    font-size: 36px;
+    font-size: 42px;
     font-weight: bold;
     color: rgb(105, 98, 98);
     text-transform: uppercase;
@@ -21,6 +21,10 @@ body {
 
 .item {
     width: calc(100% / 11);
-    padding: 15px 20px;
+    padding: 5px;
     text-align: center;
+}
+
+.to-color {
+    color: #f311cd;
 }
