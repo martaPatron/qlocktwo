@@ -6,15 +6,19 @@
 
 body {
     background-color: black;
+    /* background-color: rgb(95, 90, 90); */
+    display: flex;
+    /* justify-content: center; */
 }
 
 .clock {
+    /* background-color: black; */
     font-size: 42px;
     font-weight: bold;
     color: rgb(43, 40, 40);
     text-transform: uppercase;
     width: 800px;
-    margin: auto;
+    margin-left: 30px;
     display: flex;
     flex-wrap: wrap;
 }
@@ -27,4 +31,49 @@ body {
 
 .to-color {
     color: #f311cd;
+}
+
+.set-time-box {
+    margin-left: 50px;
+    padding: 20px;
+}
+
+.set-specified-time {
+    display: flex;
+    justify-content: space-between;
+}
+
+#inputTime {
+    background-color: rgb(95, 90, 90);
+    border: none;
+    outline: none;
+    font-size: 24px;
+    padding-left: 15px;
+}
+
+#time:active {
+    border: none;
+    background: none;
+}
+
+.specified-time,
+.current-time {
+    font-size: 16px;
+    background-color: rgb(180, 174, 174);
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.specified-time {
+    margin-left: 20px;
+}
+
+.current-time {
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.disabled {
+    display: none;
 }
