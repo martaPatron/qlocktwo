@@ -11,9 +11,9 @@ class Time {
         return this.hour;
     }
     getCurrentMinutes() {
-        console.log(`minutes: ${this.minutes}`);
+        // console.log(`minutes: ${this.minutes}`);
         this.minutes = Math.round(this.minutes / 5) * 5; //rounding in step 5
-        console.log(`rounded minutes: ${this.minutes}`);
+        // console.log(`rounded minutes: ${this.minutes}`);
         if (this.minutes > 30) {
             return 60 - this.minutes;
         }
@@ -28,14 +28,14 @@ class Time {
     getTime() {
         var min = this.getCurrentMinutes();
         if (min == 0) {
-            console.log('min == 0');
+            // console.log('min == 0');
             this.timeSelectors.push('oclock');
         } else {
             if (this.isToSix()) {
-                console.log('isToSix');
+                // console.log('isToSix');
                 this.timeSelectors.push('past');
             } else {
-                console.log('isAfterSix');
+                // console.log('isAfterSix');
                 this.timeSelectors.push('to');
                 this.hour++;
             }
@@ -56,14 +56,43 @@ class Time {
             }
         }
     }
+    deletePreviousTime() {
+        for (let i = 0; i < this.timeSelectors.length; i++) {
+            var elements = document.getElementsByClassName(this.timeSelectors[i]);
+            console.log(this.timeSelectors[i]);
+            for (let j = 0; j < elements.length; j++) {
+                elements[j].classList.remove('to-color');
+            }
+        }
+    }
 
 }
 
-var tt = new Date();
-var hour = tt.getHours();
-var min = tt.getMinutes();
-var example1 = new Time(hour, min);
-example1.getTime();
-example1.showTime();
-console.log(example1.getCurrentHour());
-console.log(example1.getCurrentMinutes());
+
+function displayTimeToScreen(state) {
+    var date = new Date();
+    var hour = date.getHours();
+    var min = date.getMinutes();
+    var example1 = new Time(hour, min);
+    example1.deletePreviousTime();
+    example1.getTime();
+    example1.showTime();
+    if (state) {
+        var seconds = date.getSeconds();
+        var secondsToWait = (60 - seconds) * 1000;
+        setTimeout(function() { displayTimeToScreen() }, secondsToWait);
+    } else {
+        setTimeout(function() { displayTimeToScreen() }, 60000);
+    }
+    // console.log(example1.getCurrentHour());
+    // console.log(example1.getCurrentMinutes());
+}
+displayTimeToScreen(true);
+// var date = new Date();
+// var hour = date.getHours();
+// var min = date.getMinutes();
+// var example1 = new Time(hour, min);
+// example1.getTime();
+// example1.showTime();
+// console.log(example1.getCurrentHour());
+// console.log(example1.getCurrentMinutes());
