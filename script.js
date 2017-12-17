@@ -12,9 +12,9 @@ class Time {
     }
     getCurrentMinutes() {
         this.minutes = Math.round(this.minutes / 5) * 5; //rounding in step 5
-        if (this.minutes > 30 && this.minutes < 56) {
+        if (this.minutes > 30 && this.minutes < 58) {
             return 60 - this.minutes;
-        } else if (this.minutes > 55) {
+        } else if (this.minutes > 57) {
             this.hour++;
             return 0;
         }
