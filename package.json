@@ -1,0 +1,22 @@
+{
+  "name": "clock",
+  "version": "1.0.0",
+  "description": "word clock",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martaPatron/qlocktwo.git"
+  },
+  "author": "Marta Patron",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/martaPatron/qlocktwo/issues"
+  },
+  "homepage": "https://github.com/martaPatron/qlocktwo#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}

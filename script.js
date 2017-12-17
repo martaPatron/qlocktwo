@@ -12,8 +12,11 @@ class Time {
     }
     getCurrentMinutes() {
         this.minutes = Math.round(this.minutes / 5) * 5; //rounding in step 5
-        if (this.minutes > 30) {
+        if (this.minutes > 30 && this.minutes < 56) {
             return 60 - this.minutes;
+        } else if (this.minutes > 55) {
+            this.hour++;
+            return 0;
         }
         return this.minutes;
     }
@@ -42,6 +45,7 @@ class Time {
             }
         }
         var hr = this.getCurrentHour();
+        if (hr == 0) { hr = 12; }
         this.timeSelectors.push(hr + 'hour');
     }
     showTime() {
@@ -77,7 +81,6 @@ function displayTimeToScreen(state) {
     if (arguments.length > 2) {
         return;
     }
-    console.log(state);
     if (state) {
         var seconds = date.getSeconds();
         var secondsToWait = (60 - seconds) * 1000;
@@ -104,10 +107,7 @@ function showSpecifiedTime() {
     if (timeValue != "") {
         var hour = +(timeValue.slice(0, 2)); //it gets hours from input
         var min = +(timeValue.slice(3, timeValue.length)); //it gets minutes from input
-        console.log(`${hour}:${min}`);
-        console.log(timer);
         clearTimeout(timer);
-        console.log(timer);
         displayTimeToScreen(false, hour, min);
     } else alert('Enter valid time');
 }
