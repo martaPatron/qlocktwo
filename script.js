@@ -68,7 +68,7 @@ function deletePreviousTime() {
 
 function displayTimeToScreen(state) {
     var date = new Date();
-    if (arguments.length > 2) {
+    if (arguments.length > 2) { // if user set date
         date.setHours(arguments[1]);
         date.setMinutes(arguments[2]);
     }
