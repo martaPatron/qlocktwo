@@ -1,6 +1,2 @@
-# Dependency directories
-node_modules
-
-# Optional REPL history
-.idea
+node_modules/
 .git/
